@@ -23,7 +23,7 @@ CREATE TABLE Dealerships (
     Phone VARCHAR(12) NOT NULL                    
 );
 -- Create a table to store vehicle information with columns matching the Java program variables
-CREATE TABLE vehicles (
+CREATE TABLE Vehicles (
     VIN VARCHAR(17) PRIMARY KEY,              -- Vehicle Identification Number (integer, primary key)
     `Year` YEAR NOT NULL,                
     Make VARCHAR(50) NOT NULL,        
@@ -36,13 +36,28 @@ CREATE TABLE vehicles (
 );
 
 -- Create a table to track which dealership has which vehicles
-CREATE TABLE Inventory (
-dealership_id INT,             
-VIN VARCHAR(17) 
+
+CREATE TABLE inventory (
+    dealership_id INT,
+    VIN VARCHAR(17),
+    FOREIGN KEY (dealership_id) REFERENCES Dealerships(dealership_id),
+    FOREIGN KEY (VIN) REFERENCES Vehicles(VIN)
+);
+
+
+-- Create a table to store sales contract information
+CREATE TABLE Sales_contracts (
+    contract_id INT AUTO_INCREMENT PRIMARY KEY,
+    VIN VARCHAR(17),
+    sale_date DATE NOT NULL,
+    sale_price DOUBLE NOT NULL,
+    buyer_name VARCHAR(100) NOT NULL,
+    buyer_contact VARCHAR(50) NOT NULL,
+    FOREIGN KEY (VIN) REFERENCES Vehicles(VIN)
 );
 
 
 
-
+	
 
 
