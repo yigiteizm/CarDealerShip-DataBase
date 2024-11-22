@@ -22,6 +22,17 @@ CREATE TABLE Dealerships (
     Address VARCHAR(50) NOT NULL,                 
     Phone VARCHAR(50) NOT NULL                    
 );
+-- Create a table to store vehicle information with columns matching the Java program variables
+CREATE TABLE vehicles (
+    VIN VARCHAR(50) AUTO_INCREMENT PRIMARY KEY,              -- Vehicle Identification Number (integer, primary key)
+    `Year` YEAR NOT NULL,                
+    Make VARCHAR(50) NOT NULL,        
+    Model VARCHAR(50) NOT NULL,       
+    `Type` VARCHAR(50) NOT NULL, 
+    Color VARCHAR(50) NOT NULL,       
+    Odometer INT NOT NULL,            
+    Price DOUBLE NOT NULL            
+);
 
 
 
